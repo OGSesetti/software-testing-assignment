@@ -1,0 +1,62 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition	Make sure that there is an already created project available	Navigate to the issues page 
+Post Condition	
+Tags IssuePage
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+IssueName = Issue1
+IssueName_New = Issue2
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue,
+ 	Update name of issue, 
+	Create second issue with privious updated name
+    Delete first issue
+
+Create issue
+	Select "Select project to create issue"
+	Select any previously created project
+	Now select the button again. It should have the text "New issue in *selected project*"
+	Input IssueName as title
+	Select "Create Issue"
+	Verify that the page has been updated and a new issue has been created
+
+Update name of issue
+	Navigate to the page of the previously created issue
+	Select "Edit" from the top tight
+	Input IssueName_New as the new title
+	Select "Save changes"
+	Verify that the issue name has been updated on the page
+
+Create second issue with the previously used name
+	Select "New issue"
+	Input IssueName as title
+	Select "Create Issue"
+	Verify that the page has been updated and a new issue has been created
+
+Delete original issue
+	Select the originally created issue
+	Select the three dots in the top right
+	Select "Delete issue"
+	Select "Delete issue" from the pop up
+	Verify that the issue has been deleted from the issues list

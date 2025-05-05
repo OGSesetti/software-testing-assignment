@@ -1,0 +1,80 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	 open Browser	login	navigate to the project page
+Post Condition	close Browser
+Tags	ProjectPage
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+Blank_Project_Name = projekti
+Template_Project_Name =templateRoject
+Template_Project_Name_New = templateProject
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive test cases
+
+Create blank project
+	Navigate to the + -sign in the top left corner
+	Select "New project/repository"
+	From the new page select "Create blank project"
+	Input Blank_Project_Name as Project name
+	Select "Create Project"
+	Verify that the page has updated and a new project has been created
+
+Create template project
+	Navigate to the + -sign in the top left corner
+	Select "New project/repository"
+	From the new page select "Create from template"
+	Select "NodeJS Express" and press "Use template"
+	Input Template_Project_Name as Project name
+	Select "Create Project"
+	Verify that the page has updated and a new project has been created
+
+Create template project
+	Navigate to the previously created template project
+	Press the three dots icon in the top right corner
+	Select "Project settings"
+	Input Template_Project_Name_New as the new project name
+	Select "Changes
+	Navigate back to the template project page
+	Verify that the name has been updated
+
+Delete template project
+	Navigate to the previously created template project
+	Press the three dots icon in the top right corner
+	Select "Project settings"
+	Go to the "Advanced" tab
+	Select "Delete project"
+	Input the required text to the pop up's text field and select "Yes, delete project"
+	Verify there is a "Pending deletion" bubble next to the project name in the template project page
+
+# Negative Test examples are below write test process steps for each below test case
+
+Create a blank project with the previous same name
+	Navigate to the projects page
+	Select "New Project"
+	Select "Create blank project"
+	Input Blank_Project_Name, just like with the first project
+	Select "Create project"
+	Verify that the project creation did not go through, and there is a error message at the top of the page
